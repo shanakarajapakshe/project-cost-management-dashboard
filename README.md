@@ -2,6 +2,18 @@
 
 A professional, offline desktop application built with Electron, Node.js, HTML, CSS, Bootstrap, and Chart.js for managing project costs, revenues, and profits with automatic Excel file generation and storage.
 
+## 🌐 Live Project Page (GitHub Pages)
+
+This project is published using **GitHub Pages** for documentation and preview purposes.
+
+🔗 **Live URL:**  
+https://shanakarajapakshe.github.io/project-cost-management-dashboard/
+
+### Notes
+- If the page does not load immediately, wait 1–2 minutes and refresh (GitHub Pages may still be building).
+- This page is for **documentation and presentation only**.
+- The full application runs as a **desktop Electron app**, not in the browser.
+
 ## Features
 
 ### ✨ Core Features
