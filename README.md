@@ -8,12 +8,12 @@ A professional, offline desktop application built with Electron, Node.js, HTML, 
 - **Monthly Data Management**: Select month/year to create and manage separate Excel files for each period
 - **Automatic Excel Generation**: Creates `.xlsx` files automatically when selecting a new month/year
 - **Real-time Calculations**: Automatically calculates:
-  - Engineer Cost = No. of Engineers × Engineer Salary/Month
   - CE Visit Cost = CE Visit Charge × Visits/Month
   - Direct Cost = Engineer Cost + CE Visit Cost + Transport Cost
   - Overhead Cost = Direct Cost × (Overhead Allocation % / 100)
   - Total Cost = Direct Cost + Overhead Cost
   - Profit = Client Payment - Total Cost
+  - Engineer Cost = Engineer Salary/Month
 
 ### 📊 Dashboard & Analytics
 - **Summary Statistics**: Total projects, revenue, costs, and net profit
