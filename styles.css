@@ -96,10 +96,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* Stat Cards */
 .stat-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #dbdeec 0%, #e3d5f2 100%);
     padding: 1.5rem;
     border-radius: 8px;
-    color: white;
+    color: rgb(10, 10, 10);
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
