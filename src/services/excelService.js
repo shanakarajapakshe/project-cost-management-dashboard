@@ -92,7 +92,8 @@ class ExcelService {
     const wb     = this.cache[key];
     const sheet  = wb.getWorksheet('Projects');
 
-    // addRow returns the actual row with the correct .number already set
+    // First add the row with plain values only, then get the row number,
+    // then set the formula cells separately — avoids self-reference crash.
     const newRow = sheet.addRow({
       projectName:        projectData.projectName,
       numEngineers:       projectData.numEngineers,
@@ -102,15 +103,24 @@ class ExcelService {
       transportCost:      projectData.transportCost,
       clientPayment:      projectData.clientPayment,
       overheadAllocation: projectData.overheadAllocation,
-      // BUG-FIX #1 & #2: use newRow.number AFTER addRow; include numEngineers in formula
-      engineerCost:   { formula: `=B${newRow.number}*C${newRow.number}` },
-      ceVisitCost:    { formula: `=D${newRow.number}*E${newRow.number}` },
-      directCost:     { formula: `=I${newRow.number}+J${newRow.number}+F${newRow.number}` },
-      overheadCost:   { formula: `=K${newRow.number}*(H${newRow.number}/100)` },
-      totalCost:      { formula: `=K${newRow.number}+L${newRow.number}` },
-      profit:         { formula: `=G${newRow.number}-M${newRow.number}` },
-      timestamp:      new Date()
+      // Calculated fields — written as plain values from JS (formulas set below)
+      engineerCost:       projectData.engineerCost,
+      ceVisitCost:        projectData.ceVisitCost,
+      directCost:         projectData.directCost,
+      overheadCost:       projectData.overheadCost,
+      totalCost:          projectData.totalCost,
+      profit:             projectData.profit,
+      timestamp:          new Date()
     });
+
+    // Now set Excel formulas using the correct row number (for Excel recalculation)
+    const n = newRow.number;
+    newRow.getCell(9).value  = { formula: `=B${n}*C${n}`,              result: projectData.engineerCost };
+    newRow.getCell(10).value = { formula: `=D${n}*E${n}`,              result: projectData.ceVisitCost  };
+    newRow.getCell(11).value = { formula: `=I${n}+J${n}+F${n}`,        result: projectData.directCost   };
+    newRow.getCell(12).value = { formula: `=K${n}*(H${n}/100)`,        result: projectData.overheadCost };
+    newRow.getCell(13).value = { formula: `=K${n}+L${n}`,              result: projectData.totalCost    };
+    newRow.getCell(14).value = { formula: `=G${n}-M${n}`,              result: projectData.profit       };
 
     this._styleDataRow(newRow);
 
