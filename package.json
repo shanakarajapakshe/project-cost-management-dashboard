@@ -51,15 +51,9 @@
       "releaseType": "release"
     },
     "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64"
-          ]
-        }
-      ],
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
       "icon": "assets/icons/icon.ico",
+      "artifactName": "Profit-Dashboard-Setup-${version}.exe",
       "requestedExecutionLevel": "asInvoker"
     },
     "nsis": {
