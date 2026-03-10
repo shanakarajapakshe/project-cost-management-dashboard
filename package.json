@@ -1,0 +1,69 @@
+{
+  "name": "profit-dashboard",
+  "version": "1.0.0",
+  "description": "Professional Profit Dashboard – Project Cost & Profit Management System",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "cross-env NODE_ENV=development electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": ["profit", "dashboard", "excel", "electron", "desktop"],
+  "author": "C.S.L. Rajapakse <rajapaksheshanaka@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.8",
+    "exceljs": "^4.4.0"
+  },
+  "build": {
+    "appId": "com.profitdashboard.app",
+    "productName": "Profit Dashboard",
+    "copyright": "Copyright © 2025",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "!dist/**/*",
+      "!node_modules/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "shanakarajapakshe",
+      "repo": "project-cost-management-dashboard",
+      "releaseType": "release"
+    },
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "assets/icons/icon.ico",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "mac": {
+      "target": [{ "target": "dmg", "arch": ["x64", "arm64"] }],
+      "icon": "assets/icons/icon.icns",
+      "category": "public.app-category.business"
+    },
+    "linux": {
+      "target": [{ "target": "AppImage", "arch": ["x64"] }],
+      "icon": "assets/icons/icon.png",
+      "category": "Office"
+    }
+  }
+}
