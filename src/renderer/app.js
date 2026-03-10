@@ -838,7 +838,7 @@ class AppController {
 // ────────────────────────────────────────────────────────────────────────────
 // Bootstrap
 // ────────────────────────────────────────────────────────────────────────────
-let APP;
+// APP is on window so inline onclick handlers can reach it
 document.addEventListener('DOMContentLoaded', () => {
-  APP = new AppController();
+  window.APP = new AppController();
 });
