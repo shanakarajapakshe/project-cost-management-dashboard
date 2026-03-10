@@ -1,6 +1,6 @@
 {
   "name": "profit-dashboard",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Professional Profit Dashboard – Project Cost & Profit Management System",
   "main": "src/main/main.js",
   "scripts": {
@@ -51,7 +51,14 @@
       "releaseType": "release"
     },
     "win": {
-      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
       "icon": "assets/icons/icon.ico",
       "artifactName": "Profit-Dashboard-Setup-${version}.exe",
       "requestedExecutionLevel": "asInvoker"
