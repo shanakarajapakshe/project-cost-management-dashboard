@@ -254,6 +254,18 @@ class UIController {
       editFromDetailBtn: $('editFromDetailBtn'),
     };
     this.detailModal = new bootstrap.Modal(document.getElementById('detailModal'));
+
+    // ── Event delegation for table action buttons (avoids CSP inline-script issues)
+    this.el.projectsTableBody.addEventListener('click', (e) => {
+      const btn = e.target.closest('.btn-action');
+      if (!btn) return;
+      const action = btn.dataset.action;
+      const index  = parseInt(btn.dataset.index, 10);
+      if (isNaN(index)) return;
+      if (action === 'view')   window.APP.viewProject(index);
+      if (action === 'edit')   window.APP.editProject(index);
+      if (action === 'delete') window.APP.deleteProject(index);
+    });
   }
 
   // ── Year / month population ───────────────────────────────────────────────
@@ -325,21 +337,21 @@ class UIController {
           ${this.formatCurrency(p.profit)}
         </td>
         <td class="text-nowrap">
-          <button class="btn btn-sm btn-outline-primary me-1"
-                  onclick="APP.viewProject(${i})" title="View details">
+          <button class="btn btn-sm btn-outline-primary me-1 btn-action"
+                  data-action="view" data-index="${i}" title="View details">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
             </svg>
           </button>
-          <button class="btn btn-sm btn-outline-warning me-1"
-                  onclick="APP.editProject(${i})" title="Edit">
+          <button class="btn btn-sm btn-outline-warning me-1 btn-action"
+                  data-action="edit" data-index="${i}" title="Edit">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
               <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
             </svg>
           </button>
-          <button class="btn btn-sm btn-outline-danger"
-                  onclick="APP.deleteProject(${i})" title="Delete">
+          <button class="btn btn-sm btn-outline-danger btn-action"
+                  data-action="delete" data-index="${i}" title="Delete">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
             </svg>
