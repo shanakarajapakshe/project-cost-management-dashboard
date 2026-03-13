@@ -19,20 +19,25 @@
     "electron",
     "desktop"
   ],
-  "author": "Your Name",
+  "author": "Shanaka Rajapakse",
   "license": "MIT",
   "devDependencies": {
     "electron": "^28.3.3",
     "electron-builder": "^24.9.1"
   },
   "dependencies": {
-    "electron-log": "^5.4.3",
-    "electron-updater": "^6.8.3",
+    "electron-log": "^5.1.2",
+    "electron-updater": "^6.1.7",
     "exceljs": "^4.4.0"
   },
   "build": {
     "appId": "com.profitdashboard.app",
     "productName": "Profit Dashboard",
+    "publish": {
+      "provider": "github",
+      "owner": "shanakarajapakshe",
+      "repo": "project-cost-management-dashboard"
+    },
     "directories": {
       "output": "dist"
     },
@@ -45,9 +50,7 @@
       "target": [
         {
           "target": "nsis",
-          "arch": [
-            "x64"
-          ]
+          "arch": ["x64"]
         }
       ],
       "icon": "icon.ico"
@@ -56,10 +59,7 @@
       "target": [
         {
           "target": "dmg",
-          "arch": [
-            "x64",
-            "arm64"
-          ]
+          "arch": ["x64", "arm64"]
         }
       ],
       "icon": "icon.icns"
@@ -68,17 +68,10 @@
       "target": [
         {
           "target": "AppImage",
-          "arch": [
-            "x64"
-          ]
+          "arch": ["x64"]
         }
       ],
       "icon": "icon.png"
-    },
-    "publish": {
-      "provider": "github",
-      "owner": "shanakarajapakshe",
-      "repo": "project-cost-management-dashboard"
     }
   }
 }

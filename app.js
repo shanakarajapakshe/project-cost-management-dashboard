@@ -56,7 +56,7 @@ class DataManager {
     }
 
     calculateProjectMetrics(data) {
-        const engineerCost = data.numEngineers * data.engineerSalary;
+        const engineerCost = data.engineerSalary;
         const ceVisitCost = data.ceVisitCharge * data.visitsPerMonth;
         const directCost = engineerCost + ceVisitCost + data.transportCost;
         const overheadCost = directCost * (data.overheadAllocation / 100);
@@ -346,7 +346,6 @@ class UIController {
                     ${this.formatCurrency(project.profit)}
                 </td>
                 <td>
-                    <button class="btn btn-sm btn-info" onclick="uiController.viewProjectDetails(${index})">View</button>
                     <button class="btn btn-sm btn-danger" onclick="uiController.deleteProject(${index})">Delete</button>
                 </td>
             </tr>
