@@ -1,0 +1,84 @@
+{
+  "name": "profit-dashboard",
+  "version": "1.0.0",
+  "description": "Professional Profit Dashboard Desktop Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build-win": "electron-builder --win",
+    "build-mac": "electron-builder --mac",
+    "build-linux": "electron-builder --linux",
+    "release": "electron-builder --publish always",
+    "draft": "electron-builder --publish never"
+  },
+  "keywords": [
+    "profit",
+    "dashboard",
+    "excel",
+    "electron",
+    "desktop"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "electron-log": "^5.4.3",
+    "electron-updater": "^6.8.3",
+    "exceljs": "^4.4.0"
+  },
+  "build": {
+    "appId": "com.profitdashboard.app",
+    "productName": "Profit Dashboard",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/**/*",
+      "!node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "icon.ico"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "icon.icns"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "icon.png"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "shanakarajapakshe",
+      "repo": "project-cost-management-dashboard"
+    }
+  }
+}
