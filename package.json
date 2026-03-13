@@ -44,22 +44,29 @@
     "files": [
       "**/*",
       "!dist/**/*",
-      "!node_modules/**/*"
+      "!.github/**/*",
+      "!*.md",
+      "!*.tar.gz"
     ],
     "win": {
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
-      "icon": "assets/icon.ico"
+      "icon": "icon.ico"
     },
     "mac": {
       "target": [
         {
           "target": "dmg",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         }
       ],
       "icon": "icon.icns"
@@ -68,10 +75,13 @@
       "target": [
         {
           "target": "AppImage",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "icon.png"
-    }
+    },
+    "asar": true
   }
 }
