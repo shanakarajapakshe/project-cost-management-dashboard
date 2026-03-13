@@ -19,11 +19,11 @@
     "electron",
     "desktop"
   ],
-  "author": "Shanaka Rajapakshe",
+  "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
     "electron": "^28.3.3",
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^24.9.1"
   },
   "dependencies": {
     "electron-log": "^5.1.2",
