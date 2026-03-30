@@ -434,7 +434,7 @@ class ExcelService {
             projectData.transportCost,
             projectData.clientPayment,
             projectData.overheadAllocation,
-            { formula: `=B${nextRowNumber}*C${nextRowNumber}` },
+            { formula: `=C${nextRowNumber}` },
             { formula: `=D${nextRowNumber}*E${nextRowNumber}` },
             { formula: `=I${nextRowNumber}+J${nextRowNumber}+F${nextRowNumber}` },
             { formula: `=K${nextRowNumber}*(H${nextRowNumber}/100)` },
