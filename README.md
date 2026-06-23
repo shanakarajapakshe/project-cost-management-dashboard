@@ -1,37 +1,73 @@
-# Project Cost Management Dashboard
+﻿# Project Cost Management Dashboard
 
-A professional desktop application for managing project costs, built with Electron and ExcelJS.
+A desktop dashboard for tracking project cost, profit, and monthly performance in one place. Built with Electron and ExcelJS, it is designed for teams that want a simple internal tool instead of manual spreadsheet work.
 
-## Features
+## What It Does
 
-- Add and manage multiple projects per month
-- Auto-calculates engineer cost, CE visit cost, overhead, total cost and profit
-- Exports data to Excel (.xlsx)
-- Auto-updates via GitHub Releases
+- Manages multiple projects per month
+- Calculates engineer cost, CE visit cost, overhead, total cost, and profit automatically
+- Exports and updates data in Excel format
+- Uses GitHub Releases for desktop app updates
+- Runs as a desktop app on Windows, macOS, and Linux
 
-## Getting Started
+## Why It Matters
+
+- Helps teams track project financials faster
+- Reduces spreadsheet mistakes and manual calculations
+- Gives managers a clear view of cost and profit data
+- Fits internal business, operations, and reporting workflows
+
+## Tech Stack
+
+- Electron
+- ExcelJS
+- electron-updater
+- electron-log
+- Bootstrap 5
+
+## Run Locally
 
 ```bash
 npm install
 npm start
 ```
 
-## Building a Release
+## Build and Release
+
+Build installers for each platform:
 
 ```bash
-# Bump version in package.json, then:
-git add .
-git commit -m "Release v1.x.x"
-git tag v1.x.x
-git push origin main
-git push origin v1.x.x
+npm run build-win
+npm run build-mac
+npm run build-linux
 ```
 
-GitHub Actions will automatically build and publish installers for Windows, macOS and Linux.
+Create a release build:
 
-## Tech Stack
+```bash
+npm run release
+```
 
-- [Electron](https://www.electronjs.org/)
-- [ExcelJS](https://github.com/exceljs/exceljs)
-- [electron-updater](https://www.electron.build/auto-update)
-- Bootstrap 5
+## Project Structure
+
+```text
+project-cost-management-dashboard/
+├── app.js
+├── excelService.js
+├── main.js
+├── preload.js
+├── updater.js
+├── index.html
+├── styles.css
+├── assets/
+└── README.md
+```
+
+## Notes
+
+- The app stores and reads data through Excel files.
+- GitHub Releases is used for distribution and update delivery.
+
+## License
+
+MIT
